@@ -36,8 +36,26 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+
+  // Nuxt auth module configuration : https://auth.nuxtjs.org/
+  auth: {
+    strategies: {
+      google: {
+        clientId: process.env.GOOGLE_SOCIAL_LOGIN_CLIENT_ID,
+        codeChallengeMethod: '',
+        responseType: 'token id_token',
+        logoutRedirectUri: process.env.BASE_URL
+      }
+    }
+  },
+
+  // define middleware global
+  router: {
+    middleware: ['auth']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
