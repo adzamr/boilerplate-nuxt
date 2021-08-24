@@ -11,10 +11,6 @@
 
 <script>
 export default {
-  mounted () {
-    const token = this.$auth.strategy.token.get()
-    console.log(token)
-  },
   methods: {
     async logout () {
       await this.$auth.logout()

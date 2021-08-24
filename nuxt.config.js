@@ -47,7 +47,8 @@ export default {
         clientId: process.env.GOOGLE_SOCIAL_LOGIN_CLIENT_ID,
         codeChallengeMethod: '',
         responseType: 'token id_token',
-        logoutRedirectUri: process.env.BASE_URL
+        redirectUri: process.env.BASE_URL,
+        logoutRedirectUri: process.env.BASE_URL_LOGOUT
       }
     }
   },
