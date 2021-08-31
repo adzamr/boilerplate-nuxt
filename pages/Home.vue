@@ -3,6 +3,7 @@
     <h1>
       Welcome to Home
     </h1>
+    <nuxt-link to="/about">About</nuxt-link>
     <button @click="logout">
       Logout
     </button>

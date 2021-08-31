@@ -44,9 +44,13 @@ export default {
   auth: {
     strategies: {
       google: {
+        endpoints: {
+          token: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/login-with-google',
+          userInfo: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/user'
+        },
         clientId: process.env.GOOGLE_SOCIAL_LOGIN_CLIENT_ID,
         codeChallengeMethod: '',
-        responseType: 'token id_token',
+        responseType: 'code',
         redirectUri: process.env.BASE_URL,
         logoutRedirectUri: process.env.BASE_URL_LOGOUT
       }
