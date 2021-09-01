@@ -43,6 +43,22 @@ export default {
   // Nuxt auth module configuration : https://auth.nuxtjs.org/
   auth: {
     strategies: {
+      sigUpGoogle: {
+        endpoints: {
+          authorization: 'https://accounts.google.com/o/oauth2/auth',
+          userInfo: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/user',
+          logout: process.env.BASE_URL_LOGOUT
+        },
+        scheme: 'oauth2',
+        grantType: 'authorization_code',
+        accessType: 'offline',
+        clientId: process.env.GOOGLE_SOCIAL_LOGIN_CLIENT_ID,
+        codeChallengeMethod: 'S256',
+        responseType: 'code',
+        scope: ['openid', 'profile', 'email'],
+        redirectUri: process.env.BASE_URL_SIGNUP,
+        logoutRedirectUri: process.env.BASE_URL_LOGOUT
+      },
       google: {
         endpoints: {
           token: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/login-with-google',
@@ -60,7 +76,7 @@ export default {
         clientId: process.env.GOOGLE_SOCIAL_LOGIN_CLIENT_ID,
         codeChallengeMethod: 'S256',
         responseType: 'code',
-        redirectUri: process.env.BASE_URL,
+        redirectUri: process.env.BASE_URL_HOME,
         logoutRedirectUri: process.env.BASE_URL_LOGOUT
       }
     }

@@ -3,6 +3,9 @@
     <button @click="signIn">
       Login with Google
     </button>
+    <button @click="signUp">
+      Sign Up with Google
+    </button>
   </div>
 </template>
 
@@ -11,6 +14,9 @@ export default {
   methods: {
     signIn () {
       this.$auth.loginWith('google')
+    },
+    signUp () {
+      this.$auth.loginWith('sigUpGoogle', { params: { role: 'admin' } })
     }
   }
 }
