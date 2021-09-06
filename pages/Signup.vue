@@ -26,7 +26,7 @@ export default {
         role: this.role,
         redirect_uri: redirectURI
       }
-      this.$axios.post('http://adonis-js-ayocoding.rover.digitalservice.id/api/signup-with-google', data).then((res) => {
+      this.$axios.post('/signup-with-google', data).then((res) => {
         console.log(res)
       })
     }
