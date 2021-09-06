@@ -42,11 +42,12 @@ export default {
 
   // Nuxt auth module configuration : https://auth.nuxtjs.org/
   auth: {
+    plugins: ['~/plugins/auth.js'],
     strategies: {
       sigUpGoogle: {
         endpoints: {
           authorization: 'https://accounts.google.com/o/oauth2/auth',
-          userInfo: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/user',
+          userInfo: process.env.API_URL + '/user',
           logout: process.env.BASE_URL_LOGOUT
         },
         scheme: 'oauth2',
@@ -61,9 +62,9 @@ export default {
       },
       google: {
         endpoints: {
-          token: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/login-with-google',
+          token: process.env.API_URL + '/login-with-google',
           property: 'token',
-          userInfo: 'http://adonis-js-ayocoding.rover.digitalservice.id/api/user'
+          userInfo: process.env.API_URL + '/user'
         },
         token: {
           property: 'token'
@@ -88,7 +89,9 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
